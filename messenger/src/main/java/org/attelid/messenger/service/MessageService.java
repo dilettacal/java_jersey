@@ -7,6 +7,7 @@ import org.attelid.messenger.model.Message;
 
 public class MessageService {
 	
+	
 	/**
 	 * hard coded messages
 	 * here: call to Database to get concrete values
