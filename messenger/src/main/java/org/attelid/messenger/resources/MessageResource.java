@@ -25,5 +25,14 @@ public class MessageResource {
 	public List<Message> getMessages(){
 		return messageService.getAllMessages();
 	}
+	
+	//Try to reach messages/test
+	@GET
+	@Path("/test")
+	@Produces(MediaType.TEXT_PLAIN)	
+	public String test() {
+		return "test";
+		
+	}
 
 }
