@@ -11,6 +11,9 @@ local.properties
 .loadpath
 .recommenders
 
+## Props
+*.properties
+
 # External tool builders
 .externalToolBuilders/
 
