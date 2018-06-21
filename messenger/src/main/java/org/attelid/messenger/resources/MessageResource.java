@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -26,12 +27,12 @@ public class MessageResource {
 		return messageService.getAllMessages();
 	}
 	
-	//Try to reach messages/test
+	
 	@GET
-	@Path("/test")
+	@Path("/{messageId}")
 	@Produces(MediaType.TEXT_PLAIN)	
-	public String test() {
-		return "test";
+	public String test(@PathParam(value = "messageId") String messageId) {
+		return "Path param " + messageId;
 		
 	}
 
