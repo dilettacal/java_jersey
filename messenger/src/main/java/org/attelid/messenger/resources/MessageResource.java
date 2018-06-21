@@ -21,20 +21,19 @@ import org.attelid.messenger.service.MessageService;
  *
  */
 @Path("/messages")
+@Consumes(MediaType.APPLICATION_JSON) 
+@Produces(MediaType.APPLICATION_JSON) 
 public class MessageResource {
 	
 	MessageService messageService = new MessageService();
 	
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)	
 	public List<Message> getMessages(){
 		return messageService.getAllMessages();
 	}
 	
 	//adds a new message in messages/
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON) //parameter
-	@Produces(MediaType.APPLICATION_JSON) 
 	public Message addMessage(Message message) {
 		return messageService.addMessage(message);
 	}
@@ -42,8 +41,6 @@ public class MessageResource {
 	
 	@PUT
 	@Path("/{messageId}")
-	@Consumes(MediaType.APPLICATION_JSON) 
-	@Produces(MediaType.APPLICATION_JSON) 
 	public Message updateMessage(@PathParam(value = "messageId") long messageId, Message message) {
 		message.setId(messageId);
 		return messageService.updateMessage(message);
@@ -51,14 +48,12 @@ public class MessageResource {
 	
 	@DELETE
 	@Path("/{messageId}")
-	@Produces(MediaType.APPLICATION_JSON) 
 	public void deleteMessage(@PathParam("messageId") long id) {
 		messageService.removeMessage(id);
 	}
 	
 	@GET
 	@Path("/{messageId}")
-	@Produces(MediaType.APPLICATION_JSON)	
 	public Message getMessage(@PathParam(value = "messageId") long messageId) {
 			return messageService.getMessage(messageId);
 	}
