@@ -28,6 +28,7 @@ public class Message {
 	}
 	
 	public Message(long id, String message, String author) {
+		this.created = new Date();
 		this.id = id;
 		this.message = message;
 		this.author = author;

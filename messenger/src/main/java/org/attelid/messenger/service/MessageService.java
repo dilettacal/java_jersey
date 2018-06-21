@@ -1,7 +1,8 @@
 package org.attelid.messenger.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,27 @@ public class MessageService {
 		return new ArrayList<Message>(messages.values());
 	}
 	
+	//Filtering and pagination
+	public List<Message> getAllMessagesForYear(int year){
+		List<Message> messagesForYear = new ArrayList<>();
+		Calendar cal = Calendar.getInstance();
+		for (Message message: messages.values()) {
+			cal.setTime(message.getCreated());
+			if(cal.get(Calendar.YEAR) == year) {
+				messagesForYear.add(message);
+			}
+		}
+		return messagesForYear;
+	}
+	
+	public List<Message> getAllMessagesPaginated(int start, int size){
+		
+		ArrayList<Message> list = new ArrayList<Message>(messages.values());
+		if(start + size > list.size()) return new ArrayList<Message>(); //empty list
+		return list.subList(start, start+size);		
+	}
+	
+	//End filtering and pagination
 	public Message getMessage(long id) {
 		return messages.get(id);
 	}
