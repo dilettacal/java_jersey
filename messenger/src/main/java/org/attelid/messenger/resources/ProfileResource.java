@@ -36,7 +36,7 @@ public class ProfileResource {
 	}
 
 	@POST
-	public Profile addMessage(Profile profile) {
+	public Profile addProfile(Profile profile) {
 		return profileService.addProfile(profile);
 	}
 
@@ -55,7 +55,7 @@ public class ProfileResource {
 
 	@GET
 	@Path("/{profileName}")
-	public void removeProfile(@PathParam(value = "profileName") String profileName) {
-		profileService.removeProfile(profileName);
+	public Profile getProfile(@PathParam(value = "profileName") String profileName) {
+		return profileService.getProfile(profileName);
 	}
 }
