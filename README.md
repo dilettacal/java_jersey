@@ -1,3 +1,3 @@
-# java_jersey
+# Java EE with Jersey
 
-Some Jersey playaround :-)
+Jersey playaround from the online course "Java EE - Developing REST APIs with JAX-RS" (https://javabrains.io/topics/javaee/)
